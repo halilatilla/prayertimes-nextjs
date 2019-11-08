@@ -19,7 +19,6 @@ export default function SelectSubCities({ subCities }) {
   useEffect(() => {
     const localStorageLength = localStorage.length;
     setlocalStLength(localStorageLength);
-    console.log(localStorageLength);
   }, [prayerTimes]);
 
   const chanceHandle = () => {

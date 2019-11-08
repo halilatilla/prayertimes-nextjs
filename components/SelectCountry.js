@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import SelectCity from "./SelectCity";
 import localDataCountries from "../localDataCountries.json";
-/* const CountryContainer = styled.div`
+const CountryContainer = styled.div`
   margin-top: 10vmin;
   height: 5vmin;
   display: grid;
@@ -12,7 +13,7 @@ import localDataCountries from "../localDataCountries.json";
     font-size: 1.4vmin;
     padding: 0 9px;
   }
-`; */
+`;
 
 export default function SelectCountry() {
   const [cities, setCities] = useState([]);
@@ -30,7 +31,7 @@ export default function SelectCountry() {
   };
 
   return (
-    <>
+    <CountryContainer>
       <select onChange={() => chanceHandle()}>
         <option>Select Country</option>
         {localDataCountries.map(country => (
@@ -40,6 +41,6 @@ export default function SelectCountry() {
         ))}
       </select>
       <SelectCity cities={cities} />
-    </>
+    </CountryContainer>
   );
 }
