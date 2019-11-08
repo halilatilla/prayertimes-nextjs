@@ -9,9 +9,14 @@ const CountryContainer = styled.div`
   grid-column-gap: 1vmin;
   grid-template-columns: repeat(3, 1fr);
   width: 95vmin;
+  justify-content: center;
   select {
-    font-size: 1.4vmin;
+    font-size: 2vmin;
     padding: 0 9px;
+    background-color: #d3d3d3;
+  }
+  @media (max-width: 768px) {
+    padding: 0 18px;
   }
 `;
 

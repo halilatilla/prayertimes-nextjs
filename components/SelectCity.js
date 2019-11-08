@@ -30,14 +30,6 @@ export default function SelectCity({ cities }) {
       </select>
 
       <SelectSubCities subCities={subCities} />
-
-      <style jsx>
-        {`
-          select {
-            height: 100%;
-          }
-        `}
-      </style>
     </>
   );
 }
