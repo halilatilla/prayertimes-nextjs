@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ShowTimes from "./ShowTimes";
 
-export default function SelectSubCities({ subCities }) {
+export default function SelectTown({ subCities }) {
   const [prayerTimes, setPrayertimes] = useState("");
   const [localStLength, setlocalStLength] = useState();
 
@@ -30,7 +30,7 @@ export default function SelectSubCities({ subCities }) {
   return (
     <>
       <select onChange={() => chanceHandle()}>
-        <option>Select SubCity</option>
+        <option>Select Town</option>
 
         {subCities.map(subCities => (
           <option key={subCities.IlceID} value={subCities.IlceID}>

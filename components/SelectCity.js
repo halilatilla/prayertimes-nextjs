@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SelectSubCities from "./SelectSubCities";
+import SelectTown from "./SelectTown";
 
 export default function SelectCity({ cities }) {
   const [subCities, setsubCities] = useState([]);
@@ -29,7 +29,7 @@ export default function SelectCity({ cities }) {
         ))}
       </select>
 
-      <SelectSubCities subCities={subCities} />
+      <SelectTown subCities={subCities} />
     </>
   );
 }
