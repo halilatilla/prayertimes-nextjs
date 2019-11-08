@@ -1,3 +1,4 @@
-prayer times app made with nextjs
+## prayer times app made with nextjs
 
-prayertimes-nextjs.png
+[https://prayertimes-nextjs.atillahalil0.now.sh/]
+![](prayertimes-nextjs.png)
