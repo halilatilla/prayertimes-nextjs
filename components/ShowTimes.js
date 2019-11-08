@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const ShowTimesContainer = styled.div`
@@ -29,40 +29,19 @@ const TimesContainer = styled.div`
   width: 50vmin;
   display: grid;
   place-items: center center;
-  div {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-    border-bottom: 1px solid #c23456;
-    padding: 18px 5px;
-  }
 `;
 
-export default function ShowTimes({ prayerTimes }) {
-  const [times, setTimes] = useState([]);
-  const [cityname, setCityname] = useState("");
-  const [townname, setTownname] = useState("");
-  const [hour, setHour] = useState(new Date().toLocaleTimeString());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHour(new Date().toLocaleTimeString());
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const dateNow = new Date().toLocaleDateString();
-    const allTimes = JSON.parse(localStorage.getItem("local-prayer-times"));
-    const newTime = allTimes.filter(time => time.MiladiTarihKisa === dateNow);
-
-    setTimes(...newTime);
-    setCityname(localStorage.getItem("city-name"));
-    setTownname(localStorage.getItem("town-name"));
-  }, [prayerTimes]);
+const CurrentTime = styled.div`
+  background-color: ${props => props.active && "red"};
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  border-bottom: 1px solid #c23456;
+  padding: 18px 5px;
+`;
+export default function ShowTimes({ times, hour, cityname, townname }) {
   const { Imsak, Gunes, Ogle, Ikindi, Aksam, Yatsi, MiladiTarihUzun } = times;
-
-  const showtimes = () => (
+  return (
     <ShowTimesContainer>
       <div>
         {cityname === townname
@@ -73,31 +52,29 @@ export default function ShowTimes({ prayerTimes }) {
       <div>{MiladiTarihUzun}</div>
       <div>{hour}</div>
       <TimesContainer>
-        <div>
+        <CurrentTime active>
           İmsak <span>{Imsak}</span>
-        </div>
+        </CurrentTime>
 
-        <div>
+        <CurrentTime>
           Güneş <span>{Gunes}</span>
-        </div>
+        </CurrentTime>
 
-        <div>
+        <CurrentTime>
           Öğle <span>{Ogle}</span>
-        </div>
-        <div>
+        </CurrentTime>
+        <CurrentTime>
           İkindi <span>{Ikindi}</span>
-        </div>
+        </CurrentTime>
 
-        <div>
+        <CurrentTime>
           Aksam <span>{Aksam}</span>
-        </div>
+        </CurrentTime>
 
-        <div>
+        <CurrentTime>
           Yatsı <span>{Yatsi}</span>
-        </div>
+        </CurrentTime>
       </TimesContainer>
     </ShowTimesContainer>
   );
-
-  return <>{times ? showtimes() : <div> seçim yap</div>}</>;
 }

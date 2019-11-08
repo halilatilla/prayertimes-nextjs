@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ShowTimes from "./ShowTimes";
+import GetTimes from "./GetTimes";
 
 export default function SelectTown({ subCities }) {
   const [prayerTimes, setPrayertimes] = useState("");
@@ -39,7 +39,7 @@ export default function SelectTown({ subCities }) {
         ))}
       </select>
       {localStLength > 0 ? (
-        <ShowTimes prayerTimes={prayerTimes} />
+        <GetTimes prayerTimes={prayerTimes} />
       ) : (
         <div>seçim yap</div>
       )}
